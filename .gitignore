@@ -1,3 +1,5 @@
+archive/*
+work/*
 *.fastq.gz
 .venv
 .nextflow
