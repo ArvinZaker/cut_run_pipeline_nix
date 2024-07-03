@@ -1,5 +1,9 @@
+*.fastq.gz
+.venv
+.nextflow
 hidden.txt
 sheet.csv
+results/*
 # History files
 .Rhistory
 .Rapp.history
