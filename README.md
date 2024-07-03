@@ -1,3 +1,13 @@
+---
+title: "Cut and Run tutorial"
+author:
+- name: Arvin Zaker
+  affiliation: University of Ottawa
+output: pdf_document
+papersize: letter
+geometry: margin=2.54cm
+---
+
 # Step 1: Install dependencies
 
 ## Install git (optional)
