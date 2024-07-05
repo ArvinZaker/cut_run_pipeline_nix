@@ -23,6 +23,13 @@
 
         # Add your package dependencies here
         buildInputs = with pkgs; [
+          # for downloading files
+          docker
+          git
+          curl
+          git
+          gzip
+          # for nextflow
           bedops
           bedtools
           bowtie2
