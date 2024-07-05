@@ -62,6 +62,7 @@ In the same terminal, run the following two commands to enable flakes:
 mkdir -p ~/.config/nix
 echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 ```
+
 # Step 2: Setup the project folder
 
 ## Download the data files
@@ -178,6 +179,7 @@ The main things that you may have to change for your sample are:
 
 1. Changing the `--genome` argument to another version or another specie.
 2. Updaing the version in the `-r` argument.
+3. If you want the process to run in background at `-bg` option to the command.
 
 # Step 5: Results of the analysis.
 
@@ -185,8 +187,51 @@ All the results are in the `./results/` section.
 
 The most important folder is `./results/03_peak_calling/05_consensus_peaks/` since it has the files declaring where are the peaks.
 
-The quality control graphs are in `./results/04_reporting/` folder with many graphs which you can use to check the quality.
+The quality control graphs are in `./results/04_reporting/` folder with many graphs which you can use to check the quality. 
+Some files to look at would be:
 
+## `04_reporting/multiqc/multiqc_plots/pdf` folder
+
+`mqc_fastqc_sequence_counts_plot-2_1.pdf`
+
+- Check for consistency of sequence counts across the samples.
+- Check if you have too much duplicated reads in the sample.
+
+`mqc_fragment_lengths-plot_1.pdf`:
+
+- Check if the fragment length distribution is expected for your experiment.
+
+`mqc_fastqc_per_base_sequence_quality_plot-2_1.pdf`
+
+- Check if the sequences have consistently high quality across the base pairs
+
+`mqc_fastqc_per_sequence_quality_scores_plot-2_1.pdf`
+
+- Check if all the sequences (aka the curve) are in the high quality region.
+
+`mqc_fastqc_per_sequence_gc_content_plot_Percentages.pdf`
+
+- Check if the GC content is too high for the sequence.
+- Check if you have multiple peaks: This might indicate contamination.
+- Check if any of the curves are red-colored: This might indicate contamination.
+
+`mqc_fastqc_sequence_duplication_levels_plot-2_1.pdf`
+
+- Check to see if there are peaks in the right of the axis. This might indicate a problem with the alignment/protocol.
+
+`mqc_cutadapt_trimmed_sequences_plot_3_Counts.pdf`
+
+- This indicates the lenght of sequence trimmed because of the adapters. As a result, the curves should be a sharp J distribution.
+- Check if there are sequences that have been cut too much.
+- Check and see if the consistency of the adapters (at the bottom) is what you expect (aka do all of them have the same adapter?)
+
+## Other files
+
+`./results/04_reporting/deeptools_heatmaps/gene_all/all_genes.plotHeatmap.pdf`
+
+- This plot shows the distribution of the fragment found in the human genome (y axis of the heatmap) and its distribution in the TSS-TES region.
+- Check if the fragments are from a correct range of genes. For e.g, if your gene is specific, you should see blue and yellow for a small porition of the plot. Consequently, if the protein targetter is non-specific then you should see a lot of yellow and green across the page.
+- Check if the binding profile at the top is what you expect of the protein. For e.g if the protein is found only in TSS, you should not see much binding in TES.
 
 # MISC
 
@@ -194,5 +239,5 @@ If you want a one-command to put for compute canada, use this command:
 
 
 ```
-nix develop --command curl -s https://get.nextflow.io | bash && chmod +x ./nextflow && ./nextflow run nf-core/cutandrun -r 3.2.1 --input ./sheet.csv  --outdir ./results/ --genome GRCh38 -profile docker
+nix develop --command curl -s https://get.nextflow.io | bash && chmod +x ./nextflow && ./nextflow -bg run nf-core/cutandrun -r 3.2.1 --input ./sheet.csv  --outdir ./results/ --genome GRCh38 -profile docker
 ```
