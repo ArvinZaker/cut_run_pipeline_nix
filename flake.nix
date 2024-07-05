@@ -10,13 +10,13 @@
     self,
     nixpkgs,
   }: let
-    system = "x86_64-linux";
+    system = builtins.currentSystem; #"x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
       config = {allowUnfree = true;};
     };
   in {
-    devShells.x86_64-linux = {
+    devShells.${system} = {
       default = pkgs.mkShell {
         name = "impurePythonEnv";
         venvDir = "./.venv";

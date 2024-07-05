@@ -2,7 +2,8 @@ archive/*
 work/*
 *.fastq.gz
 .venv
-.nextflow
+.nextflow*
+.nextflow/*
 hidden.txt
 sheet.csv
 results/*

@@ -98,7 +98,7 @@ The instructions is different for each system:
 In your terminal, simplify run
 
 ```
-nix develop
+nix develop --impure
 ```
 
 After you enter the nix shell, run:
