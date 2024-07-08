@@ -172,7 +172,7 @@ And with this you are good to go!
 To run the analysis, simplify run this command.
 
 ```
-./nextflow run nf-core/cutandrun -r 3.2.2 --input ./sheet.csv  --outdir ./results/ --genome GRCh38 -profile docker -c ./nextflow.config
+./nextflow run nf-core/cutandrun -r 3.2.1 --input ./sheet.csv  --outdir ./results/ --genome GRCh38 -profile docker -c ./nextflow.config --save_reference --save_trimmed
 ```
 
 The main things that you may have to change for your sample are:
