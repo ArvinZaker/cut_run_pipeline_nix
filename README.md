@@ -177,9 +177,11 @@ To run the analysis, simplify run this command.
 
 The main things that you may have to change for your sample are:
 
-1. Changing the `--genome` argument to another version or another specie.
+1. **Selecting the correct specie**: Change the `--genome` argument to the specie of your choice. Please see the [igenome](https://support.illumina.com/sequencing/sequencing_software/igenome.html) website to select the correct genome.
 2. Updaing the version in the `-r` argument.
 3. If you want the process to run in background at `-bg` option to the command.
+
+> NOTE: IT IS EXTREMELY IMPORTANT 
 
 # Step 5: Results of the analysis.
 
@@ -241,3 +243,6 @@ If you want a one-command to put for compute canada, use this command:
 ```
 nix develop --command curl -s https://get.nextflow.io | bash && chmod +x ./nextflow && ./nextflow -bg run nf-core/cutandrun -r 3.2.1 --input ./sheet.csv  --outdir ./results/ --genome GRCh38 -profile docker
 ```
+
++ Information on alignment q score from Illumina website is [available here](https://www.illumina.com/science/technology/next-generation-sequencing/plan-experiments/quality-scores.html)
++ 
