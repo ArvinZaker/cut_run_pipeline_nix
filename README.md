@@ -155,7 +155,7 @@ If the quality of the alignment is not good, you can modify it by reading the [P
 
 The `sheet.csv` file is for inputting the sample metadata for the nextflow function.
 
-![The table showing the sheet.csv config file](image.png).
+![The table showing the sheet.csv config file](image1.png).
 
 To fill it for your own data, do the following:
 
@@ -246,3 +246,33 @@ nix develop --command curl -s https://get.nextflow.io | bash && chmod +x ./nextf
 
 + Information on alignment q score from Illumina website is [available here](https://www.illumina.com/science/technology/next-generation-sequencing/plan-experiments/quality-scores.html)
 + 
+
+
+## Downloading gene annotation bed files
+
+The [MethylKit package](https://www.bioconductor.org/packages/release/bioc/vignettes/methylKit/inst/doc/methylKit.html#4_Annotating_differentially_methylated_bases_or_regions) recommends using the package `genomation` in conjuction with a `.bed.txt` file to annotate which part of the genome each gene resides in.
+
+For this purpose, I wanted to aquire the latest mouse genome.
+
+I went to [UCSC table browser](https://genome.ucsc.edu/cgi-bin/hgTables) And did the following:
+
+- `Genome` as `Mouse`
+- `Assembelly` as `GRCm38/mm10`
+- `Output format` as `Bed`
+- `Output filename` as `mm10.bed.txt`
+
+The page would look like: 
+
+![alt text](image2.png)
+
+Then I clicked `get output`. In the follwing page I clicked `get BED`
+
+The file I used is currently in `./data`
+
+## Downloading CpGi annotation bed files.
+
+According to [this forum](https://www.biostars.org/p/236141/) I used this command to get the annotation of CpG islands for the mouse genome.
+
+```
+wget -qO- http://hgdownload.cse.ucsc.edu/goldenpath/mm10/database/cpgIslandExt.txt.gz | gunzip -c |  awk 'BEGIN{ OFS="\t"; }{ print $2, $3, $4, $5$6, $7, $8, $9, $10, $11, $12 }'  > cpgIsland.mm10.bed
+```

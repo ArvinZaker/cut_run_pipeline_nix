@@ -7,6 +7,8 @@ work/*
 hidden.txt
 sheet.csv
 results/*
+./peak_lvl/*
+peak_lvl/*
 # History files
 .Rhistory
 .Rapp.history
