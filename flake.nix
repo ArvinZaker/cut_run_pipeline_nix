@@ -85,50 +85,25 @@
           cargo
 
           R
-          # R packages to use:
+          # for genomic annotation
+          rPackages.methylKit
+          rPackages.genomation
+          rPackages.genomationData
+          rPackages.rtracklayer
+          # the rest
           rPackages.Biobase
           rPackages.BiocManager
-          rPackages.BumpyMatrix
           rPackages.ComplexHeatmap
           rPackages.DEGreport
-          rPackages.DESeq2
-          rPackages.DOSE
-          rPackages.DT
-          rPackages.GEOquery
-          rPackages.GSVA
-          rPackages.GenomeInfoDb
-          rPackages.Hmisc
-          rPackages.MetaGxBreast
-          rPackages.MultiAssayExperiment
           rPackages.RCircos
-          rPackages.tidyquant
-          rPackages.TCGAbiolinks
-          rPackages.TTR
+          rPackages.hrbrthemes
           rPackages.alluvial
-          rPackages.annotate
-          rPackages.bazar
-          rPackages.callr
-          rPackages.caret
           rPackages.circlize
-          rPackages.cli
-          rPackages.clusterProfiler
-          rPackages.concaveman
-          rPackages.covr
-          rPackages.cowplot
-          rPackages.curl
           rPackages.dendextend
           rPackages.desc
           rPackages.devtools
-          rPackages.digest
-          rPackages.dplyr
-          rPackages.edgeR
-          rPackages.ellipsis
-          rPackages.enrichplot
           rPackages.fgsea
-          rPackages.fmsb
-          rPackages.foghorn
           rPackages.foreach
-          rPackages.fs
           rPackages.ggalluvial
           rPackages.ggforce
           rPackages.ggplot2
@@ -136,90 +111,21 @@
           rPackages.ggraph
           rPackages.ggrepel
           rPackages.ggsci
-          rPackages.gh
-          rPackages.glmnet
           rPackages.gridExtra
-          rPackages.hrbrthemes
-          rPackages.httpuv
-          rPackages.httr
-          rPackages.igraph
-          rPackages.itertools
-          rPackages.kableExtra
-          rPackages.kernlab
-          rPackages.knitr
           rPackages.languageserver
           rPackages.languageserversetup
-          rPackages.lavaan
-          rPackages.lifecycle
-          rPackages.limma
-          rPackages.lintr
-          rPackages.lsa
-          rPackages.magicaxis
-          rPackages.memoise
-          rPackages.miniUI
-          rPackages.msa
-          rPackages.network
-          rPackages.networkD3
-          rPackages.nlme
           rPackages.openxlsx
-          rPackages.pROC
-          rPackages.pander
-          rPackages.paws_developer_tools
-          rPackages.pegas
-          rPackages.piano
-          rPackages.pingr
-          rPackages.pkgbuild
-          rPackages.pkgdown
-          rPackages.pkgload
-          rPackages.pls
-          rPackages.plotly
-          rPackages.profvis
-          rPackages.progress
-          rPackages.randomForest
-          rPackages.rayshader
-          rPackages.rcmdcheck
-          rPackages.readr
           rPackages.readxl
-          rPackages.remotes
-          rPackages.rhub
-          rPackages.rio
-          rPackages.rlang
-          rPackages.rlang
           rPackages.rmarkdown
-          rPackages.roxygen2
-          rPackages.rpart
-          rPackages.rpart_plot
-          rPackages.rqdatatable
-          rPackages.rstatix
-          rPackages.rstudioapi
-          rPackages.rversions
-          rPackages.scales
-          rPackages.seqinr
-          rPackages.sessioninfo
-          rPackages.shiny
-          rPackages.smooth
-          rPackages.smoothie
-          rPackages.sna
-          rPackages.spelling
           rPackages.stringi
           rPackages.stringr
-          rPackages.styler
-          rPackages.survival
-          rPackages.survminer
-          rPackages.sva
-          rPackages.testthat
-          rPackages.threejs
           rPackages.tidyr
           rPackages.tidyverse
-          rPackages.urlchecker
-          rPackages.usethis
-          rPackages.verification
           rPackages.viridis
-          rPackages.visNetwork
-          rPackages.withr
           rPackages.writexl
-          rPackages.xtable
-          rPackages.LiblineaR
+          rPackages.foreach
+          rPackages.doParallel
+          rPackages.future
         ];
 
         LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";

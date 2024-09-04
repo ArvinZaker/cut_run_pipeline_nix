@@ -267,7 +267,7 @@ The page would look like:
 
 Then I clicked `get output`. In the follwing page I clicked `get BED`
 
-The file I used is currently in `./data`
+The file I used is currently in `./databases/`
 
 ## Downloading CpGi annotation bed files.
 
